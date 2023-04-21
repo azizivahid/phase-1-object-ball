@@ -1,5 +1,5 @@
 console.log('Advanced debugging example running.')
-debugger
+//debugger
 
 // first, define the function.
 function goodPractices() {
@@ -12,13 +12,31 @@ function goodPractices() {
     for (let teamKey in teamObj) {
       // are you ABSOLUTELY SURE what 'teamKey' is?
       // use debugger to find out!
-      debugger
+     // debugger
 
       // what is 'data' at each loop through out this block?
       // when will the following line of code work and when will it break?
-      let data = teamObj.player
-      for (let key in data) {
+      let data = teamObj.players
+      if (teamKey === "players")
+      {
+          
+          for (let key in data) {
+        //    debugger
+            numPointsScored(data, key);
+            shoeSize(data, key);
+            playerNumbers(data, key);
+            debugger
+            playerStats(data,key)
+      //  debugger
+        }
         debugger
+      } else if (teamKey === "teamName"){
+        let teamdata = teamObj.teamName
+          teamNames(teamdata);
+      } else if (teamKey === "colors"){
+        let teamcolors = teamObj.colors
+        teamColors(teamcolors);
+
       }
     }
   }
@@ -26,3 +44,38 @@ function goodPractices() {
 
 // then, call the function so it runs!
 goodPractices()
+
+function numPointsScored (obj ,player) {
+//debugger
+  let game = obj ;
+  console.log (`${player}'s points :  `+ game[player].points)
+}
+
+function shoeSize (obj ,player) {
+  //debugger
+    let game = obj ;
+    console.log (`${player}'s shoe size :  `+ game[player].shoe)
+  };
+
+  function teamColors (obj ) {
+    debugger
+      
+      console.log (`Team Colors:  ` + obj)
+    };
+
+    function teamNames (obj) {
+      debugger
+        
+        console.log (`Team Name  :  `+ obj)
+      };
+
+      function playerNumbers (obj ,player) {
+        //debugger
+          let game = obj ;
+          console.log (`${player}'s Number:  `+ game[player].number)
+        }
+        function playerStats (obj,key ) {
+          //debugger
+            let game = obj ;
+            console.log (game[key])
+          }
