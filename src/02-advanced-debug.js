@@ -1,3 +1,4 @@
+let strArray = [];
 console.log('Advanced debugging example running.')
 //debugger
 
@@ -19,15 +20,16 @@ function goodPractices() {
       let data = teamObj.players
       if (teamKey === "players")
       {
-          
+        doesLongNameStealATon (data);
           for (let key in data) {
-        //    debugger
+            debugger
             numPointsScored(data, key);
             shoeSize(data, key);
             playerNumbers(data, key);
             debugger
             playerStats(data,key)
-      //  debugger
+            strArray.push (key.toString())
+        debugger
         }
         debugger
       } else if (teamKey === "teamName"){
@@ -38,12 +40,15 @@ function goodPractices() {
         teamColors(teamcolors);
 
       }
+
+      
     }
   }
 }
 
 // then, call the function so it runs!
-goodPractices()
+goodPractices();
+doesLongNameStealATon (strArray);
 
 function numPointsScored (obj ,player) {
 //debugger
@@ -78,4 +83,22 @@ function shoeSize (obj ,player) {
           //debugger
             let game = obj ;
             console.log (game[key])
+          }
+
+          function doesLongNameStealATon(arrykey) {
+      
+            let maxLength = 0;
+            let strM = ''
+
+            for (var i = 0, length = arrykey.length; i < length; i++) {
+              maxLength = Math.max(maxLength, arrykey[i].length);
+            }
+            if (maxLength ===0){
+              strM = 'false'
+            }else {
+              strM = 'true'
+            }
+              console.log (""+  strM)
+             
+
           }
